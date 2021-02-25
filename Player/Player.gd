@@ -50,10 +50,16 @@ func move_state(delta):
 		animationState.travel("Idle")
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 
+#	if velocity != Vector2.ZERO:
+#		animationState.travel("Run")
+#	else:
+#		animationState.travel("Idle")
+	
 	velocity = move_and_slide(velocity)
 	
 	if Input.is_action_just_pressed("attack"):
 		state = ATTACK
+		#velocity = Vector2.ZERO
 
 func attack_state(delta):
 	animationState.travel("Attack")
